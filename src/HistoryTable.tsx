@@ -20,11 +20,11 @@ export const HistoryTable = () => {
     historyApi
       .getDataHistory()
       .then((response: ResponseHistory[]) => setRows(response));
-  });
+  }, []);
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <DataGrid rows={rows} columns={columns} />
+      <DataGrid rows={rows} columns={columns} getRowId={(row) => row._id} />
     </div>
   );
 };
